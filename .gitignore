@@ -23,4 +23,4 @@ project/target/
 target/
 .scala_dependencies
 .worksheet
-output/
+output/batch-closure-*
