@@ -21,7 +21,7 @@ class TransactionTable(tag: Tag) extends Table[Transaction](tag, "transaction") 
   def cardNumber: Rep[String] = column[String]("nrotarjeta")
 
   override def * : ProvenShape[Transaction] =
-    (id, terminalNumber, idSite, paymentMethod, mcc, amount, cardNumber).<>(
+    (id.?, terminalNumber, idSite, paymentMethod, mcc, amount, cardNumber).<>(
       {
         case (id, terminalNumber, idSite, paymentMethod, mcc, amount, cardNumber) =>
           Transaction(

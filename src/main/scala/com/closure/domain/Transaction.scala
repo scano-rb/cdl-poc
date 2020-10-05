@@ -1,7 +1,7 @@
 package com.closure.domain
 
 case class Transaction(
-    id: Int,
+    id: Option[Int],
     terminalNumber: String,
     idSite: String,
     paymentMethod: Int,
