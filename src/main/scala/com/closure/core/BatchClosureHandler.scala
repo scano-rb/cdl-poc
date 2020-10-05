@@ -5,6 +5,7 @@ import akka.actor.typed.{ActorRef, Behavior}
 import com.closure.core.Notificator.SendMessage
 import com.closure.infrastructure.messaging.ClosureMessage
 import BatchClosurePipeline.batchClosurePipeline
+import com.closure.api.API.BatchClosureResponse
 
 import scala.util.{Failure, Success}
 
@@ -14,8 +15,6 @@ object BatchClosureHandler {
   sealed trait Command
   final case class BatchClosure(idSite: Long, paymentMethod: Int, replyTo: ActorRef[BatchClosureResponse])
       extends Command
-
-  final case class BatchClosureResponse(message: String)
 
   def apply(notificator: ActorRef[Notificator.Command]): Behavior[Command] =
     handler(notificator)
