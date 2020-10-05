@@ -31,6 +31,7 @@ docker-compose up
 ./generator.sh
 ```
 Por defecto inserta 100 registros, puede configurarse la cantidad de registros en [application.conf](src/main/resources/application.conf)
+
 3. Ejecutar la app:
 ```
 sbt run
