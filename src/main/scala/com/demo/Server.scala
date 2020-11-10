@@ -1,4 +1,4 @@
-package com.closure
+package com.demo
 
 import akka.Done
 import akka.actor.CoordinatedShutdown
@@ -8,16 +8,16 @@ import akka.actor.typed.scaladsl.adapter._
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import com.closure.core.{BatchClosureHandler, HealthCheckHandler, Notificator}
-import com.closure.api.{BatchClosureRoutes, HealthCheckRoutes}
-import com.closure.infrastructure.database.DbSupport
-import com.closure.infrastructure.messaging.KafkaClient
+import com.demo.core.{BatchClosureHandler, HealthCheckHandler, Notificator}
+import com.demo.api.{BatchClosureRoutes, HealthCheckRoutes}
+import com.demo.infrastructure.database.DbSupport
+import com.demo.infrastructure.messaging.KafkaClient
 import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
-object ClosurePoc extends DbSupport {
+object Server extends DbSupport {
 
   private def startHttpServer(routes: Route, system: ActorSystem[_]): Unit = {
 

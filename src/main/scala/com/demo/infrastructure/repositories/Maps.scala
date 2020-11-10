@@ -1,4 +1,4 @@
-package com.closure.infrastructure.repositories
+package com.demo.infrastructure.repositories
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

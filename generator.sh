@@ -1,2 +1,2 @@
 #!/bin/bash
-sbt "runMain com.closure.infrastructure.generator.DataGenerator"
+sbt "runMain com.demo.infrastructure.generator.DataGenerator"

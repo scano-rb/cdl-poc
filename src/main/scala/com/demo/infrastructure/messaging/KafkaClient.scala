@@ -1,4 +1,4 @@
-package com.closure.infrastructure.messaging
+package com.demo.infrastructure.messaging
 
 import java.util.Properties
 import java.util.concurrent.Future

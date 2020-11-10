@@ -1,23 +1,23 @@
 version: '3.7'
 
 services:
-  dec2-mysql:
-    image: mysql:5.7
-    ports:
-      - 3307:3306
-      - 33070:33060
+  bp-postgres:
+    image: postgres:latest
     environment:
-      MYSQL_ROOT_PASSWORD: "root"
+      - "TZ=Europe/Amsterdam"
+      - "POSTGRES_USER=root"
+      - "POSTGRES_PASSWORD=root"
+    ports:
+      - "45432:5432"
     volumes:
-      - ./mysql/createDatabases.sql:/docker-entrypoint-initdb.d/createDatabases.sql
-      - ./mysql:/etc/mysql/mysql.conf.d
+      - "./sql:/docker-entrypoint-initdb.d"
 
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
       - 2181:2181
 
-  dec2-kafka:
+  bp-kafka:
     image: wurstmeister/kafka
     ports:
       - 9092:9092
@@ -34,6 +34,12 @@ services:
       KAFKA_NUM_PARTITIONS: 3
     links:
       - zookeeper
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8083:8080
 
 volumes:
   ivy2:

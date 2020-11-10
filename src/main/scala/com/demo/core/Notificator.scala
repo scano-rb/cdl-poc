@@ -1,9 +1,14 @@
-package com.closure.core
+package com.demo.core
 
 import akka.actor.typed.Behavior
 import akka.actor.typed.scaladsl.Behaviors
-import com.closure.infrastructure.messaging.{ClosureMessage, KafkaClient}
+import com.demo.infrastructure.messaging.{ClosureMessage, KafkaClient}
 
+/**
+  * Notificator that sends a notification message to a specific kafka topic.
+  * It is used to notify other services that batch processing has finished and that the
+  * batch closure file has been created.
+  */
 object Notificator {
 
   // actor protocol
